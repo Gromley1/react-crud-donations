@@ -11,5 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "fastify": "^4.9.2"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0"
   }
 }

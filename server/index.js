@@ -1,5 +1,9 @@
 const fastify = require('fastify')({ logger: true })
 
+fastify.get('/', async (request, reply) => {
+    return { hello: 'world' };
+  });
+
 
 // Run the server!
 const start = async () => {
