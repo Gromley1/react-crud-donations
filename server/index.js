@@ -1,14 +1,11 @@
 const fastify = require('fastify')({ logger: true })
 
-fastify.get('/', async (request, reply) => {
-    return { hello: 'world' };
-  });
-
+.register(require('./routes/donations'), { prefix: '/api/donations' })
 
 // Run the server!
 const start = async () => {
   try {
-    await fastify.listen(3000)
+    await fastify.listen(3001)
   } catch (err) {
     fastify.log.error(err)
     process.exit(1)
