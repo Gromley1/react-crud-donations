@@ -3,8 +3,8 @@ const VALID_STATUS = ["successful", "failed", "pending"];
 const validateDonation = (tx = {}) => {
   let errors = [];
 
-  if (!tx.amount_in_cents) {
-    errors.push("amount_in_cents is required");
+  if (!tx.amount) {
+    errors.push("amount is required");
   }
 
   if (!tx.donor) {

@@ -1,0 +1,6 @@
+@use './variables' as *;
+
+// toRem
+@function toRem($pixel) {
+	@return #{calc($pixel / $base-size)}rem;
+}

@@ -1,0 +1,24 @@
+@use '../../scss/abstracts/' as *;
+
+.status {
+    height: toRem(24px);
+    width: toRem(100px);
+    background-color: $color-secondary-dark;
+    border-radius: toRem(12px);
+    position: relative;
+
+    // .status--success
+    &--success {
+        background-color: $color-primary-green;
+    }
+
+
+    // .status__text
+    &__text {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

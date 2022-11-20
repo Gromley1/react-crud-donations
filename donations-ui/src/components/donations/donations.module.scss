@@ -1,0 +1,52 @@
+@use '../../scss/abstracts/' as *;
+
+
+.donations {
+
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+
+    // .table__header
+    &__header {
+        text-align: left;
+    }
+
+    // .table__row
+    &__row {
+        &:nth-child(even) {
+            background-color: $color-primary-bg-dark;
+        }
+    }
+
+    // .table__data
+    &__data {
+            padding: toRem(16px);
+    }
+
+    &__delete {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+// .donations__total
+.total {
+    display: flex;
+    max-width: fit-content;
+    margin: 0 auto;
+    line-height: toRem(40px);
+    font-weight: 600;
+    background-color: $color-secondary-green;
+    padding: 0 toRem(8px);
+
+    // .total__count
+    &__count {
+        font-size: toRem(24px);
+        padding-left: toRem(20px);
+    }
+    
+}

@@ -1,0 +1,9 @@
+@use './scss/base' as *;
+@use './scss/abstracts' as *;
+
+body {
+	color: $color-primary-dark;
+	min-height: 100vh;
+	font-size: toRem(16px);
+	background-color: $color-primary-bg;
+}

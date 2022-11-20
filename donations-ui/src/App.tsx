@@ -1,13 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Donations } from './components';
+import styles from './app.module.scss';
 
 function App() {
-  return (
-    <div className="App">
-     Donations UI
-    </div>
-  );
+    return (
+        <div className={styles.app}>
+            <Donations />   
+        </div>
+    );
 }
 
 export default App;

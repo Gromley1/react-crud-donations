@@ -1,0 +1,87 @@
+@use '../../scss/abstracts/' as *;
+
+.form {
+    padding: toRem(16px);
+    border: toRem(2px) solid $color-primary-dark;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: toRem(100px);
+
+    // .form__column
+    &__column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // .form__group
+    &__group {
+        display: flex;
+        flex-direction: column;
+
+        &:not(:last-child) {
+            margin-bottom: toRem(12px);
+        }
+    }
+
+    // .form__label
+    &__label {
+        margin-bottom: toRem(4px);
+    }
+
+    // .form__input
+    &__input {
+        padding: toRem(8px);
+        border-radius: toRem(6px);
+        border: toRem(1px) solid $color-secondary-dark;
+
+        &:active,
+        &:focus,
+        &:focus-visible {
+                border: toRem(1px) solid $color-secondary-dark;
+                outline-color: blue;
+        }
+
+        // .form__input--textarea
+        &--textarea {
+            min-height: toRem(86px);
+        }
+
+        // .form__input--error
+        &--error {
+            border-color: $color-primary-alert;
+
+            &:active,
+            &:focus,
+            &:focus-visible {
+                border-color: $color-primary-alert;
+            }
+        }
+    }
+
+    // .form__error
+    &__error {
+        margin: toRem(4px) 0;
+        color: $color-primary-alert;
+    }
+
+    // .form__actions
+    &__actions {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: auto;
+    }
+
+    // .form__submitBtn
+    &__submitBtn {
+        border-radius: toRem(6px);
+        padding: toRem(8px) toRem(12px);
+        border: toRem(1px) solid;
+        color: $color-primary-white;
+        background-color: $color-primary-green;
+
+        &:disabled {
+            background: $color-disabled;
+        }
+    }
+
+}

@@ -1,0 +1,5 @@
+@use './scss/abstracts/' as *;
+
+.app {
+    padding: toRem(16px);
+}
