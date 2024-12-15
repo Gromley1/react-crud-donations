@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode, useEffect, useState } from "react";
+import { ReactElement, ReactNode, useCallback, useEffect, useMemo, useState } from "react";
 import { getDonations, deleteDonation, addDonation } from "../../services/donations.service";
 import { AddDonatonRequet, Donation, GetDonationsResponse } from "../../services/models";
 import { DonationStatus } from "../donation-status/dontation-status.component";
@@ -39,7 +39,7 @@ export const Donations = (): ReactElement => {
             })
         }
 
-    const onCreateDonation = (data: AddDonationFormData): void => {
+    const onCreateDonation = useCallback((data: AddDonationFormData) => {
         const request = {
                 data: {
                     donation: {...data}
@@ -52,9 +52,9 @@ export const Donations = (): ReactElement => {
                     handleGetDonations();
                 }
             })
-    }
+    }, [])
 
-    const renderTableData = (): ReactNode => {
+    const tableData = useMemo(() => {
         let content = null;
 
         if (donationsData) {
@@ -75,13 +75,13 @@ export const Donations = (): ReactElement => {
         }
 
         return content;
-    }
+    }, [donationsData])
 
-    const renderTableHeaders = (): ReactNode => {
+    const tableHeaders = useMemo((): ReactNode => {
         const headers = ['Date', 'Donor', 'Status', 'Amount', 'Comment'];
 
-        return headers.map((x, index) => <th key={`${index} ${x}`} className={styles.table__header}>{x}</th>)
-    }
+        return headers.map((x, index) => <th key={`${index}-${x}`} className={styles.table__header}>{x}</th>)
+    }, [])
 
     const totalInCents = donationsData?.donations 
         ? donationsData.donations.map(x => x.amount).reduce((a, b) => a + b)
@@ -92,13 +92,13 @@ export const Donations = (): ReactElement => {
         <>
             <div className={styles.donations}>
                 <h1>Donations</h1>
-                <AddDonation onSubmit={(data: any) => onCreateDonation(data as AddDonationFormData)}/>
+                <AddDonation onSubmit={onCreateDonation}/>
 
                 <h2>Existing Donations</ h2>
                 <table className={styles.table}>
                     <tbody>
-                        <tr>{renderTableHeaders()}</ tr>
-                        {renderTableData()}
+                        <tr>{tableHeaders}</ tr>
+                        {tableData}
                     </ tbody>
                 </ table>
 
